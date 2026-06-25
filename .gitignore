@@ -1,0 +1,6 @@
+# Dependências instaladas pelo Composer (restauráveis via composer install)
+/vendor/
+
+# Configurações específicas de IDEs e editores
+/.idea/
+/.vscode/
