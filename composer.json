@@ -1,0 +1,30 @@
+{
+    "name": "tavares/hotel",
+    "description": "Um Projeto de Check In de Hotel fazendo Uso de Arquitetura Hexagonal",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tavares\\Hotel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Cesar Tavares Ferreira"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "pestphp/pest": "^3.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
