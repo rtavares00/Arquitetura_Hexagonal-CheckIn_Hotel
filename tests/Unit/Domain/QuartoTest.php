@@ -72,22 +72,22 @@ test('isEmManutencao retorna false quando o status não é Manutencao', function
 
 /*
 |--------------------------------------------------------------------------
-| reservar
+| ocupar
 |--------------------------------------------------------------------------
 */
 
-test('reservar marca o quarto como ocupado quando ele está disponível', function () {
+test('ocupar marca o quarto como ocupado quando ele está disponível', function () {
     $quarto = new Quarto(1, Status::Disponivel);
 
-    $quarto->reservar();
+    $quarto->ocupar();
 
     expect($quarto->isOcupado())->toBeTrue();
 });
 
-test('reservar lança QuartoIndisponivelException quando o quarto não está disponível', function (Status $status) {
+test('ocupar lança QuartoIndisponivelException quando o quarto não está disponível', function (Status $status) {
     $quarto = new Quarto(1, $status);
 
-    expect(fn () => $quarto->reservar())->toThrow(QuartoIndisponivelException::class);
+    expect(fn () => $quarto->ocupar())->toThrow(QuartoIndisponivelException::class);
 })->with([
     'ocupado'    => Status::Ocupado,
     'manutenção' => Status::Manutencao,
