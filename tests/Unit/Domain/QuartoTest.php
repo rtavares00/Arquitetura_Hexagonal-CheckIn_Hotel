@@ -2,6 +2,7 @@
 
 use Tavares\Hotel\Domain\Quarto;
 use Tavares\Hotel\Domain\Enum\Status;
+use Tavares\Hotel\Domain\Exception\QuartoIndisponivelException;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,18 @@ test('cria um quarto com id e status', function () {
     $quarto = new Quarto(1, Status::Disponivel);
 
     expect($quarto)->toBeInstanceOf(Quarto::class);
+});
+
+/*
+|--------------------------------------------------------------------------
+| id
+|--------------------------------------------------------------------------
+*/
+
+test('id retorna o identificador do quarto', function () {
+    $quarto = new Quarto(7, Status::Disponivel);
+
+    expect($quarto->id())->toBe(7);
 });
 
 /*
@@ -63,10 +76,19 @@ test('isEmManutencao retorna false quando o status não é Manutencao', function
 |--------------------------------------------------------------------------
 */
 
-test('reservar marca o quarto como ocupado', function () {
+test('reservar marca o quarto como ocupado quando ele está disponível', function () {
     $quarto = new Quarto(1, Status::Disponivel);
 
     $quarto->reservar();
 
     expect($quarto->isOcupado())->toBeTrue();
 });
+
+test('reservar lança QuartoIndisponivelException quando o quarto não está disponível', function (Status $status) {
+    $quarto = new Quarto(1, $status);
+
+    expect(fn () => $quarto->reservar())->toThrow(QuartoIndisponivelException::class);
+})->with([
+    'ocupado'    => Status::Ocupado,
+    'manutenção' => Status::Manutencao,
+]);
