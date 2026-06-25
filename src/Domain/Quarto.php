@@ -26,7 +26,7 @@ Class Quarto{
         return $this->status == Status::Manutencao;
     }
 
-    public function reservar():void
+    public function ocupar():void
     {
         if($this->status != Status::Disponivel){
             throw new QuartoIndisponivelException($this->id);
