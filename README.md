@@ -18,7 +18,6 @@
 - [Como executar](#-como-executar)
 - [Como rodar os testes](#-como-rodar-os-testes)
 - [Decisões de design](#-decisões-de-design)
-- [Possíveis evoluções](#-possíveis-evoluções)
 
 ---
 
@@ -336,15 +335,6 @@ A suíte cobre **todas as camadas**: domínio, caso de uso (com *fakes* das port
 - **Exceções por camada:** regras de negócio lançam exceções de **domínio** (`Domain/Exception`); falhas técnicas lançam exceções de **infraestrutura** (`Adapter/Exception`), evitando vazar detalhe de infra para o núcleo.
 - **Value Object com invariante:** `Hospede` valida o CPF na construção e o guarda **normalizado** (forma canônica).
 - **Comparações estritas:** o `Quarto` compara `Status` com `===`/`!==`.
-
----
-
-## 🚀 Possíveis evoluções
-
-- Adaptadores de persistência em **banco de dados** (basta implementar as portas).
-- Notificadores alternativos (**e-mail**, **SMS**) implementando `Notificador`.
-- Entrada via **HTTP** (um controller como novo adaptador condutor), reaproveitando o mesmo caso de uso.
-- Um Value Object `Cpf` dedicado, encapsulando validação e normalização.
 
 ---
 
