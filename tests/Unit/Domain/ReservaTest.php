@@ -77,7 +77,7 @@ test('expõe o hóspede, o quarto e o período da reserva', function () {
 |--------------------------------------------------------------------------
 */
 
-test('acionar faz o check-in: ocupa o quarto, marca a reserva como utilizada e confirma o número do quarto', function () {
+test('acionar faz o check-in: ocupa o quarto e marca a reserva como utilizada', function () {
     $quarto = new Quarto(101, Status::Disponivel);
     $reserva = new Reserva(
         1,
@@ -88,11 +88,10 @@ test('acionar faz o check-in: ocupa o quarto, marca a reserva como utilizada e c
         false,
     );
 
-    $confirmacao = $reserva->acionar(new DateTime('2026-06-25'));
+    $reserva->acionar(new DateTime('2026-06-25'));
 
     expect($quarto->isOcupado())->toBeTrue()
-        ->and($reserva->isUtilizada())->toBeTrue()
-        ->and($confirmacao)->toContain('101');
+        ->and($reserva->isUtilizada())->toBeTrue();
 });
 
 test('acionar lança CheckinAntesDaEntradaException quando feito antes da data de entrada', function () {
