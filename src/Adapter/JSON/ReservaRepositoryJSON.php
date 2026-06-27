@@ -6,7 +6,7 @@ use DateTime;
 use Tavares\Hotel\Domain\Reserva;
 use Tavares\Hotel\Domain\VO\Hospede;
 use Tavares\Hotel\Port\ReservaRepository;
-use Tavares\Hotel\Adapter\JSON\QuartoRepositoryJSON;
+use Tavares\Hotel\Port\QuartoRepository;
 use Tavares\Hotel\Adapter\Exception\ArquivoNaoEncontradoException;
 use Tavares\Hotel\Adapter\Exception\ReservaNaoEncontradaException;
 
@@ -14,9 +14,8 @@ class ReservaRepositoryJSON implements ReservaRepository
 {
     private string $filepath;
     private array $reservas;
-    private QuartoRepositoryJSON $quartoRepository;
 
-    public function __construct(){
+    public function __construct(private QuartoRepository $quartoRepository){
         $this->filepath = __DIR__ . "/../../../data/reservas.json";
 
         if(!file_exists($this->filepath)):
@@ -24,7 +23,6 @@ class ReservaRepositoryJSON implements ReservaRepository
         endif;
 
         $this->reservas = json_decode( file_get_contents($this->filepath) ,true);
-        $this->quartoRepository = new QuartoRepositoryJSON();
     }
 
     public function buscar(int $id):Reserva
@@ -56,10 +54,10 @@ class ReservaRepositoryJSON implements ReservaRepository
             if($this->reservas[$c]['id'] == $reserva->id()):
                 $this->reservas[$c] = [
                     'id'     => $reserva->id(),
-                    'cpfHospede' => $reserva->hospede()->getCPF(),
+                    'cpfHospede' => $reserva->hospede()->cpf(),
                     'idQuarto' => $reserva->quarto()->id(),
-                    'entrada' => $reserva->getEntrada()->format('Y-m-d'),
-                    'saida' => $reserva->getSaida()->format('Y-m-d'),
+                    'entrada' => $reserva->entrada()->format('Y-m-d'),
+                    'saida' => $reserva->saida()->format('Y-m-d'),
                     'utilizada' => $reserva->isUtilizada()
                 ];
                 $localizou = true;
