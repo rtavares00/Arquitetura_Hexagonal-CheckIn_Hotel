@@ -7,7 +7,7 @@ use Tavares\Hotel\Domain\Enum\Status;
 use Tavares\Hotel\Domain\VO\Hospede;
 use Tavares\Hotel\Port\ReservaRepository;
 use Tavares\Hotel\Port\QuartoRepository;
-use Tavares\Hotel\Port\NotificacaoRepository;
+use Tavares\Hotel\Port\Notificador;
 use Tavares\Hotel\Domain\Exception\CheckinAntesDaEntradaException;
 
 /*
@@ -35,11 +35,11 @@ function quartoRepositoryFake(): QuartoRepository
     };
 }
 
-function notificadorFake(): NotificacaoRepository
+function notificadorFake(): Notificador
 {
-    return new class implements NotificacaoRepository {
-        public ?string $mensagem = null;
-        public function notificarCliente(string $mensagem): void { $this->mensagem = $mensagem; }
+    return new class implements Notificador {
+        public ?int $numeroDoQuarto = null;
+        public function confirmarCheckin(int $numeroDoQuarto): void { $this->numeroDoQuarto = $numeroDoQuarto; }
     };
 }
 
@@ -74,7 +74,7 @@ test('check-in com sucesso: ocupa o quarto, marca a reserva, persiste e notifica
         ->and($reserva->isUtilizada())->toBeTrue()
         ->and($reservas->salvas)->toHaveCount(1)
         ->and($quartos->salvos)->toHaveCount(1)
-        ->and($notificador->mensagem)->toContain('101');
+        ->and($notificador->numeroDoQuarto)->toBe(101);
 });
 
 test('check-in inválido propaga a exceção do domínio e não notifica o cliente', function () {
@@ -90,5 +90,5 @@ test('check-in inválido propaga a exceção do domínio e não notifica o clien
     expect(fn () => $useCase->acionar(1, new DateTime('2026-06-24')))
         ->toThrow(CheckinAntesDaEntradaException::class);
 
-    expect($notificador->mensagem)->toBeNull();
+    expect($notificador->numeroDoQuarto)->toBeNull();
 });
