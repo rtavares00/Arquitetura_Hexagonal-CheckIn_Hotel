@@ -42,4 +42,9 @@ class Hospede{
         return true;
     }
 
+    public function getCPF()
+    {
+        return $this->cpf;
+    }
+
 }
