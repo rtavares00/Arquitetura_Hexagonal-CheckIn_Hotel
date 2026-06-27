@@ -23,17 +23,17 @@ Class Quarto{
 
     public function isOcupado():bool
     {
-        return $this->status == Status::Ocupado;
+        return $this->status === Status::Ocupado;
     }
 
     public function isEmManutencao():bool
     {
-        return $this->status == Status::Manutencao;
+        return $this->status === Status::Manutencao;
     }
 
     public function ocupar():void
     {
-        if($this->status != Status::Disponivel){
+        if($this->status !== Status::Disponivel){
             throw new QuartoIndisponivelException($this->id);
         }
 
