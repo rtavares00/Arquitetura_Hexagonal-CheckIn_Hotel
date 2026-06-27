@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "cpfHospede": "814.703.692-22",
+        "idQuarto": 101,
+        "entrada": "2026-06-27",
+        "saida": "2026-06-30",
+        "utilizada": false
+    },
+    {
+        "id": 2,
+        "cpfHospede": "581.470.369-57",
+        "idQuarto": 104,
+        "entrada": "2026-07-01",
+        "saida": "2026-07-05",
+        "utilizada": false
+    },
+    {
+        "id": 3,
+        "cpfHospede": "258.147.036-44",
+        "idQuarto": 105,
+        "entrada": "2026-06-20",
+        "saida": "2026-06-25",
+        "utilizada": true
+    },
+    {
+        "id": 4,
+        "cpfHospede": "925.814.703-05",
+        "idQuarto": 102,
+        "entrada": "2026-06-27",
+        "saida": "2026-06-29",
+        "utilizada": false
+    },
+    {
+        "id": 5,
+        "cpfHospede": "692.581.470-49",
+        "idQuarto": 103,
+        "entrada": "2026-06-27",
+        "saida": "2026-06-28",
+        "utilizada": false
+    },
+    {
+        "id": 6,
+        "cpfHospede": "369.258.147-55",
+        "idQuarto": 201,
+        "entrada": "2026-06-27",
+        "saida": "2026-06-27",
+        "utilizada": false
+    },
+    {
+        "id": 7,
+        "cpfHospede": "036.925.814-24",
+        "idQuarto": 202,
+        "entrada": "2026-06-25",
+        "saida": "2026-07-10",
+        "utilizada": false
+    },
+    {
+        "id": 8,
+        "cpfHospede": "703.692.581-77",
+        "idQuarto": 106,
+        "entrada": "2026-06-26",
+        "saida": "2026-06-28",
+        "utilizada": true
+    },
+    {
+        "id": 9,
+        "cpfHospede": "470.369.258-92",
+        "idQuarto": 203,
+        "entrada": "2026-12-24",
+        "saida": "2026-12-26",
+        "utilizada": false
+    },
+    {
+        "id": 10,
+        "cpfHospede": "147.036.925-70",
+        "idQuarto": 107,
+        "entrada": "2026-06-27",
+        "saida": "2026-06-30",
+        "utilizada": false
+    },
+    {
+        "id": 11,
+        "cpfHospede": "814.703.692-22",
+        "idQuarto": 101,
+        "entrada": "2026-08-01",
+        "saida": "2026-08-03",
+        "utilizada": false
+    },
+    {
+        "id": 12,
+        "cpfHospede": "581.470.369-57",
+        "idQuarto": 104,
+        "entrada": "2026-06-27",
+        "saida": "2026-06-28",
+        "utilizada": false
+    }
+]
