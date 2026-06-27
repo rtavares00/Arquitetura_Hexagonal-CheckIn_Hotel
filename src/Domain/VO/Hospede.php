@@ -11,6 +11,8 @@ class Hospede{
         if (!$this->cpfEhValido($cpf)) {
             throw new CpfInvalidoException($cpf);
         }
+
+        $this->cpf = preg_replace('/\D/', '', $cpf);
     }
 
     private function cpfEhValido(string $cpf): bool
@@ -42,7 +44,7 @@ class Hospede{
         return true;
     }
 
-    public function cpf()
+    public function cpf(): string
     {
         return $this->cpf;
     }
