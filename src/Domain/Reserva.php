@@ -30,6 +30,11 @@ class Reserva{
         return $this->id;
     }
 
+    public function quarto():Quarto
+    {
+        return $this->quarto;
+    }
+
     public function isUtilizada():bool
     {
         return $this->utilizada;
