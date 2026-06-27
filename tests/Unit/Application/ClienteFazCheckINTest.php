@@ -39,7 +39,7 @@ function notificadorFake(): NotificacaoRepository
 {
     return new class implements NotificacaoRepository {
         public ?string $mensagem = null;
-        public function notificarCliente(string $mensagem) { $this->mensagem = $mensagem; }
+        public function notificarCliente(string $mensagem): void { $this->mensagem = $mensagem; }
     };
 }
 
