@@ -16,6 +16,11 @@ Class Quarto{
         return $this->id;
     }
 
+    public function status():Status
+    {
+        return $this->status;
+    }
+
     public function isOcupado():bool
     {
         return $this->status == Status::Ocupado;
