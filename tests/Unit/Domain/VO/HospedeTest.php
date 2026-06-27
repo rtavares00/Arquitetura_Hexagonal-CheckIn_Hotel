@@ -30,12 +30,12 @@ test('lança CpfInvalidoException quando o CPF é inválido', function (string $
 
 /*
 |--------------------------------------------------------------------------
-| getCPF
+| cpf
 |--------------------------------------------------------------------------
 */
 
-test('getCPF retorna o CPF informado na construção', function () {
+test('cpf retorna o CPF informado na construção', function () {
     $hospede = new Hospede('529.982.247-25');
 
-    expect($hospede->getCPF())->toBe('529.982.247-25');
+    expect($hospede->cpf())->toBe('529.982.247-25');
 });
