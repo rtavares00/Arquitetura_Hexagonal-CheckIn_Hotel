@@ -38,7 +38,7 @@ test('buscar monta a reserva resolvendo hóspede e quarto a partir do JSON', fun
 
     expect($reserva)->toBeInstanceOf(Reserva::class)
         ->and($reserva->id())->toBe(1)
-        ->and($reserva->hospede()->cpf())->toBe('814.703.692-22')
+        ->and($reserva->hospede()->cpf())->toBe('81470369222')
         ->and($reserva->quarto()->id())->toBe(101)
         ->and($reserva->entrada()->format('Y-m-d'))->toBe('2026-06-27')
         ->and($reserva->saida()->format('Y-m-d'))->toBe('2026-06-30')
