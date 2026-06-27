@@ -55,7 +55,7 @@ class Reserva{
         return $this->saida;
     }
 
-    public function acionar(DateTime $dataCheckin):string
+    public function acionar(DateTime $dataCheckin):void
     {
         if($dataCheckin < $this->entrada):
             throw new CheckinAntesDaEntradaException($this->id);
@@ -67,8 +67,6 @@ class Reserva{
 
         $this->quarto->ocupar();
         $this->utilizada = true;
-
-        return "Check-in confirmado. Quarto: {$this->quarto->id()}";
     }
 
 }
