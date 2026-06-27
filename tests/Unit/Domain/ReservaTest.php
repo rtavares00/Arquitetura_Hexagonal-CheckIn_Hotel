@@ -56,6 +56,23 @@ test('permite construir uma reserva já utilizada (estado válido, ex.: vinda do
 
 /*
 |--------------------------------------------------------------------------
+| getters
+|--------------------------------------------------------------------------
+*/
+
+test('expõe o hóspede, o quarto e o período da reserva', function () {
+    $hospede = new Hospede('529.982.247-25');
+    $quarto = new Quarto(101, Status::Disponivel);
+    $reserva = new Reserva(1, $hospede, $quarto, new DateTime('2026-06-25'), new DateTime('2026-06-28'), false);
+
+    expect($reserva->hospede())->toBe($hospede)
+        ->and($reserva->quarto())->toBe($quarto)
+        ->and($reserva->getEntrada()->format('Y-m-d'))->toBe('2026-06-25')
+        ->and($reserva->getSaida()->format('Y-m-d'))->toBe('2026-06-28');
+});
+
+/*
+|--------------------------------------------------------------------------
 | acionar (check-in)
 |--------------------------------------------------------------------------
 */
