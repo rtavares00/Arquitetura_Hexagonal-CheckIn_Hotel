@@ -34,8 +34,11 @@ test('lança CpfInvalidoException quando o CPF é inválido', function (string $
 |--------------------------------------------------------------------------
 */
 
-test('cpf retorna o CPF informado na construção', function () {
-    $hospede = new Hospede('529.982.247-25');
+test('cpf retorna o CPF normalizado (somente dígitos)', function (string $informado) {
+    $hospede = new Hospede($informado);
 
-    expect($hospede->cpf())->toBe('529.982.247-25');
-});
+    expect($hospede->cpf())->toBe('52998224725');
+})->with([
+    'com máscara' => '529.982.247-25',
+    'sem máscara' => '52998224725',
+]);
