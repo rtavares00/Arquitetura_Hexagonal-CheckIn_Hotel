@@ -30,6 +30,22 @@ test('id retorna o identificador do quarto', function () {
 
 /*
 |--------------------------------------------------------------------------
+| status
+|--------------------------------------------------------------------------
+*/
+
+test('status retorna o estado atual do quarto', function (Status $status) {
+    $quarto = new Quarto(1, $status);
+
+    expect($quarto->status())->toBe($status);
+})->with([
+    'disponível' => Status::Disponivel,
+    'ocupado'    => Status::Ocupado,
+    'manutenção' => Status::Manutencao,
+]);
+
+/*
+|--------------------------------------------------------------------------
 | isOcupado
 |--------------------------------------------------------------------------
 */
