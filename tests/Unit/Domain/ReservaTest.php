@@ -67,8 +67,8 @@ test('expõe o hóspede, o quarto e o período da reserva', function () {
 
     expect($reserva->hospede())->toBe($hospede)
         ->and($reserva->quarto())->toBe($quarto)
-        ->and($reserva->getEntrada()->format('Y-m-d'))->toBe('2026-06-25')
-        ->and($reserva->getSaida()->format('Y-m-d'))->toBe('2026-06-28');
+        ->and($reserva->entrada()->format('Y-m-d'))->toBe('2026-06-25')
+        ->and($reserva->saida()->format('Y-m-d'))->toBe('2026-06-28');
 });
 
 /*
