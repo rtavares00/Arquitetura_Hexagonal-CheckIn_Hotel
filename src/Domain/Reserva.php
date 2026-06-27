@@ -35,9 +35,24 @@ class Reserva{
         return $this->quarto;
     }
 
+    public function hospede(): Hospede
+    {
+        return $this->hospede;
+    }
+
     public function isUtilizada():bool
     {
         return $this->utilizada;
+    }
+
+    public function getEntrada():DateTime
+    {
+        return $this->entrada;
+    }
+
+    public function getSaida():DateTime
+    {
+        return $this->saida;
     }
 
     public function acionar(DateTime $dataCheckin):string
