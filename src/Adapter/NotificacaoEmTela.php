@@ -1,15 +1,15 @@
 <?php
 namespace Tavares\Hotel\Adapter;
 
-use Tavares\Hotel\Port\NotificacaoRepository;
+use Tavares\Hotel\Port\Notificador;
 
 
-class NotificacaoEmTela implements NotificacaoRepository{
-    
-    public function notificarCliente(string $mensagem):void
+class NotificacaoEmTela implements Notificador{
+
+    public function confirmarCheckin(int $numeroDoQuarto):void
     {
         echo "Notificação em Tela: \n\n";
-        echo $mensagem;
+        echo "Check-in confirmado. Quarto: {$numeroDoQuarto}";
         echo "\n\n";
     }
 }
