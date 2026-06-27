@@ -27,3 +27,15 @@ test('lança CpfInvalidoException quando o CPF é inválido', function (string $
     'mais de 11 dígitos'           => '529982247250',
     'vazio'                        => '',
 ]);
+
+/*
+|--------------------------------------------------------------------------
+| getCPF
+|--------------------------------------------------------------------------
+*/
+
+test('getCPF retorna o CPF informado na construção', function () {
+    $hospede = new Hospede('529.982.247-25');
+
+    expect($hospede->getCPF())->toBe('529.982.247-25');
+});
