@@ -45,12 +45,12 @@ class Reserva{
         return $this->utilizada;
     }
 
-    public function getEntrada():DateTime
+    public function entrada():DateTime
     {
         return $this->entrada;
     }
 
-    public function getSaida():DateTime
+    public function saida():DateTime
     {
         return $this->saida;
     }
